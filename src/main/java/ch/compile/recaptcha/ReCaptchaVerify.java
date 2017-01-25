@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class ReCaptchaVerify {
 
-    final Logger logger = LoggerFactory.getLogger(ReCaptchaVerify.class);
+    private final Logger logger = LoggerFactory.getLogger(ReCaptchaVerify.class);
 
 
     private static final String SITEVERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
@@ -32,7 +32,7 @@ public class ReCaptchaVerify {
 
     private String secret;
 
-    public ReCaptchaVerify() {
+    private ReCaptchaVerify() {
         this.httpClient = HttpClientBuilder.create().build();
         this.gson = new Gson();
     }
@@ -50,13 +50,14 @@ public class ReCaptchaVerify {
         this.secret = secret;
     }
 
-    public SiteVerifyResponse verify(String gRecaptchaResponse) throws IOException {
+    public SiteVerifyResponse verify(String gRecaptchaResponse, String remoteIp) throws IOException {
         HttpPost httpPost = new HttpPost(SITEVERIFY_URL);
         httpPost.addHeader("User-Agent", USER_AGENT);
 
         List<NameValuePair> parameters = new ArrayList<>();
         parameters.add(new BasicNameValuePair("secret", this.secret));
         parameters.add(new BasicNameValuePair("response", gRecaptchaResponse));
+        parameters.add(new BasicNameValuePair("remoteip", remoteIp));
         httpPost.setEntity(new UrlEncodedFormEntity(parameters));
 
         logger.debug(httpPost.toString());
