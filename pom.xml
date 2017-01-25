@@ -6,6 +6,26 @@
     <artifactId>recaptcha</artifactId>
     <version>0.2-SNAPSHOT</version>
 
+    <name>JavaReCAPTCHA</name>
+    <description>Java Library for Google ReCAPTCHA</description>
+    <url>https://github.com/keetraxx/recaptcha</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>keetraxx</id>
+            <name>Khôi Tran</name>
+            <email>kt@compile.ch</email>
+        </developer>
+    </developers>
+
     <scm>
         <connection>scm:git:git@github.com:keetraxx/recaptcha.git</connection>
         <developerConnection>scm:git:git@github.com:keetraxx/recaptcha.git</developerConnection>
