@@ -1,6 +1,5 @@
 package ch.compile.recaptcha.example;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
