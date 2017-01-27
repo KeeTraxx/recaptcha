@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Recaptcha v2 example</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <ul>
+                {{#messages}}
+                <li><strong>{{name}}</strong>: {{message}}</li>
+                {{/messages}}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <form name="form" action="/postMessage" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="5"></textarea>
+                </div>
+
+                <div class="g-recaptcha" data-sitekey="{{siteKey}}"></div>
+                <br/>
+                <button type="submit" class="btn btn-primary">Send message</button>
+                <br/>
+            </form>
+            <br/>
+            <br/>
+            {{#recaptchaSuccess}}
+            <div class="alert alert-success">
+                <strong>Yes</strong>, you passed the turing test!
+            </div>
+            {{/recaptchaSuccess}}
+
+            {{#recaptchaError}}
+            <div class="alert alert-danger">
+                Seems like you are a robot!
+            </div>
+            {{/recaptchaError}}
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
