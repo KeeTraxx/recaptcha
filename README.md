@@ -9,13 +9,12 @@ Add this dependency to your `<dependencies>` section.
     <dependency>
         <groupId>io.github.keetraxx</groupId>
         <artifactId>recaptcha</artifactId>
-        <version>0.4-SNAPSHOT</version>
     </dependency>
     
 ## Using gradle:
 Add this line to your build.gradle:
 
-    compile("io.github.keetraxx:recaptcha:0.4")
+    compile("io.github.keetraxx:recaptcha")
 
 ## Get a ReCAPTCHA API Key
 https://www.google.com/recaptcha/admin
