@@ -14,7 +14,7 @@ Add this dependency to your `<dependencies>` section.
 ## Using gradle:
 Add this line to your build.gradle:
 
-    compile("io.github.keetraxx:recaptcha")
+    compile("io.github.keetraxx:recaptcha:0.5")
 
 ## Get a ReCAPTCHA API Key
 https://www.google.com/recaptcha/admin
